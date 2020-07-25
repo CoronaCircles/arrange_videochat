@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "e79a6c908607b8dcaa29e0fc5b9f044c2b2fa86077eba8cf0e4f9249c8c8f963"
+            "sha256": "2013dfc0f3fdf72478504a3e449cfc05d18a9ca19044d259aab7d6bd2a2b7c5f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -37,6 +37,9 @@
             ],
             "index": "pypi",
             "version": "==20.1.0"
+        },
+        "arrange-videochat": {
+            "path": "./dist/arrange_videochat-0.1.tar.gz"
         },
         "asgiref": {
             "hashes": [
