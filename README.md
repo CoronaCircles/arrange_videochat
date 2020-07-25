@@ -15,35 +15,54 @@ Creators of events can delete event by using a secret url sent to them by mail.
 The Ui and mails are fully internationalized.
 
 ## Installation
-```
-pip install arrange_videochat
-```
-
-Add it to your settings installed apps:
-
-```
-INSTALLED_APPS = [
-    ...
-    'arrange_videochat',
-    ...
-]
-```
-
-Include the arrange_videochat URLconf in your project urls.py like this:
-```
-path('chat/', include('arrange_videochat.urls')),
-```
+1. Install the package
+    ```
+    pip install arrange_videochat
+    ```
 
 
-You need to migrate after installing:
-```
-python manage.py migrate
-```
+2. Add arrange_videochat and its dependecies to your settings installed apps:
+    ```
+    INSTALLED_APPS = [
+        ...
+        "crispy_forms",
+        "bootstrap_datepicker_plus",
+        "arrange_videochat",
+        ...
+    ]
+    ```
+
+
+3. Include the arrange_videochat URLconf in your project urls.py like this:
+    ```
+    path('chat/', include('arrange_videochat.urls')),
+    ```
+
+
+4. You need to migrate after installing:
+    ```
+    python manage.py migrate
+    ```
+
+
+5. Create a base template in `templates/base.html`. All templates from arrange_videochat inherit from `base.html`.
 
 ## Configuration
-TIME_ZONES_BY_LANG
-DEFAULT_FROM_EMAIL
+```
+TIME_ZONES_BY_LANG = {"de": "Europe/Berlin", "en": "UTC"}
+```
 
+```
+DEFAULT_FROM_EMAIL
+```
+
+## Dependencies
+crispy_forms
+bootstrap_datepicker_plus
+arrange_videochat
+django-ckeditor
+icalendar
+django-modeltranslation
 
 ## Cron job
 Setup a cron job that runs the following command to delete old events and to remind participants of events that start soon:
