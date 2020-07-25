@@ -52,7 +52,7 @@ class Event(models.Model):
     created_at = models.DateTimeField(_("Creation Date"), default=timezone.now)
     start = models.DateTimeField(_("Date and Time"))
     language = models.CharField(
-        _("Language"), max_length=2, choices=settings.LANGUAGES, default="en"
+        _("Language"), max_length=10, choices=settings.LANGUAGES, default="en"
     )
     tzname = models.CharField(
         _("Timezone"), choices=TIMEZONES, max_length=255, default=settings.TIME_ZONE,
@@ -114,7 +114,7 @@ class Event(models.Model):
         """Get ical representation of event"""
         cal = Calendar()
         event = IEvent()
-        event.add("summary", "Video Chat"
+        event.add("summary", "Video Chat")
         event.add("dtstart", self.start)
         cal.add_component(event)
         return cal.to_ical()
