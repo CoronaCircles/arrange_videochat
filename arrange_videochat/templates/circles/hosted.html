@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block body %}form{% endblock body %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>{% trans "Thank you for hosting an Event!" %}</h1>
+      <p>{% blocktrans with date=event.start timezone=event.start|date:"e" %}Your Event at <b>{{ date }} ({{ timezone }})</b> was created.{% endblocktrans %}
+      <br>
+      {% trans "We have sent a confirmation email with detailed instructions on how to host an Event to the adress you just provided" %}</p>
+      <a href="mailto:?subject=Invitation to join my Event!&body=Hey, I am hosting a Video Chat Event on {{ request.META.HTTP_HOST }}. It is basically an online meeting, where we share our thoughts and feelings and I would like to invite you to join us here: {{ request.scheme }}://{{ request.get_host }}{% url 'arrange_videochat:participate' event.id %}" class="btn btn-secondary">{% trans "Invite people by email" %}</a>
+      <a href="https://www.facebook.com/sharer/sharer.php?u={{ request.scheme }}://{{ request.get_host }}{% url 'arrange_videochat:participate' event.id %}&amp;src=sdkpreparse" class="btn btn-primary" class="btn btn-primary">{% trans "Invite people on Facebook" %}</a>
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}

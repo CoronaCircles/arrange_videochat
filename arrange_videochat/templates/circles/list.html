@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "A list of all Video Chat Events" %}{% endblock title %}
+
+{% block body %}event-list{% if events|length < 4 %}-empty{% endif %}{% endblock body %}
+
+{% block content %}
+<div id="participate">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12"><h2>{% trans "Upcoming Events" %}</h2></div>
+
+			<div class="col-md-8 col-sm-12">
+        {% if events %}
+          <ul class="event-list">
+            {% for event in events %}
+              {% include "arrange_videochat/_event.html" %}
+            {% endfor %}
+          </ul>
+        {% else %}
+          <p>{% trans "No Event at the moment, would you like to host one?" %}</p>
+        {% endif %}
+      </div>
+      
+      <div class="col-md-4 col-sm-12 right m-auto">
+				<a class="btn btn-secondary btn-lg" href="{% url 'arrange_videochat:host' %}">{% trans "Host an Event" %}</a>
+			</div>
+
+    </div>
+  </div>
+</div>
+{% endblock content %}

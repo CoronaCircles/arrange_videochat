@@ -1,0 +1,21 @@
+{% load i18n %}
+
+<li>
+  <time datetime="2014-07-20">
+    <span class="day">{{ event.start|date:"d" }}</span>
+    <span class="month">{{ event.start|date:"M" }}</span>
+    <span class="year">{{ event.start|date:"Y" }}</span>
+    <span class="time">{{ event.start|date:"h:i" }}</span>
+  </time>
+  <div class="info">
+
+    <h2 class="title">{% trans "Video Chat at" %} {{ event.start|date:"H:i" }} ({{ event.start|date:"e" }})</h2>
+    <p class="desc">{% blocktrans count participants=event.participant_count %}only {{ participants }} participant, yet{% plural %}{{ participants }} participants{% endblocktrans %}</p>
+    <p class="desc">{% trans "Language" %}: {{ event.get_language_display }}</p>
+    {% if not event.is_full %}
+      <a class="btn btn-primary pull-right" tabindex="-1" role="button" aria-disabled="true" href="{% url 'arrange_videochat:participate' event.id %}">{% trans "Participate" %}</a>
+    {% else %}
+      <a class="btn btn-primary disabled pull-right" href="#">{% trans "Event is Full" %}</a>
+    {% endif %}
+  </div>
+</li>

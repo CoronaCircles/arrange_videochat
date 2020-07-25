@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      {% if event.is_full %}
+        <p>{% trans "Sorry, this Event is already full" %}</p>
+      {% elif event.is_past %}
+        <p>{% trans "Sorry, this Event already took place" %}</p>
+      {% else %}
+
+      {% endif %}
+      <p>{% trans "You can not join" %}</p>
+      <a href="{% url 'arrange_videochat:list' %}">{% trans "Back" %}</a>
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}

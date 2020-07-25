@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load i18n crispy_forms_tags %}
+
+{% block title %}{% blocktrans with date=event.start timezone=event.start|date:"e" %}Participate in Event at {{ date }} ({{ timezone }}){% endblocktrans %}{% endblock title %}
+
+{% block body %}form{% endblock body %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{% blocktrans with date=event.start timezone=event.start|date:"e" %}Participate in Event at {{ date }} ({{ timezone }}){% endblocktrans %}</h2>
+
+      {% if event.is_full %}
+        <p>{% trans "Sorry, this event is already full" %}</p>
+        <a href="{% url 'arrange_videochat:list' %}">{% trans "Back" %}</a>
+      {% elif event.is_past %}
+        <p>{% trans "Sorry, this event already happened" %}</p>
+        <a class="btn btn-outline-secondary" href="{% url 'arrange_videochat:list' %}">{% trans "Back" %}</a>
+      {% else %}
+        {% include "./_terms_modal.html" %}
+
+        <p>
+          {% trans "Please provide your E-Mail Address." %}<br>
+          {% trans "You will receive an e-mail containing a link to join the event, before the event is starting" %}
+        </p>
+
+        <form target="{% url 'arrange_videochat:participate' event.id %}" method="POST">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <a class="btn btn-outline-secondary" href="{% url 'arrange_videochat:list' %}">{% trans "Cancel" %}</a>
+          <button type="submit" class="btn btn-primary">{% trans "Participate" %}</button>
+        </form>
+      {% endif %}
+      
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block extrafooter %}
+
+<script type="text/javascript">
+    $(window).on('load',function(){
+        $('.terms').modal('show');
+    });
+</script>
+  
+{% endblock extrafooter %}

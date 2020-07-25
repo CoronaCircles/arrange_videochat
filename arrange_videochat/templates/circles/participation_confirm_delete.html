@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h2>{% trans "Leave Event" %}</h2>
+      <form method="post">{% csrf_token %}
+        <p>{% blocktrans with datetime=participation.event.start timezone=participation.event.start|date:"e" %}Are you sure you want to leave the event starting at {{ datetime }} ({{ timezone }})?{% endblocktrans %}</p>
+        
+        <a class="btn btn-outline-secondary" href="{% url 'arrange_videochat:list' %}">{% trans "Cancel" %}</a>
+        <button type="submit" class="btn btn-primary">{% trans "Leave" %}</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

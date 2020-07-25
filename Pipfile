@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "==19.10b0"
+pylint = "*"
+pylint-django = "*"
+
+[packages]
+django = "*"
+django-environ = "*"
+argon2-cffi = "*"
+gunicorn = "*"
+whitenoise = "*"
+dj-database-url = "*"
+psycopg2-binary = "*"
+pillow = "*"
+django-crispy-forms = "*"
+django-bootstrap-datepicker-plus = "*"
+django-ckeditor = "*"
+icalendar = "*"
+django-modeltranslation = "*"
+
+[requires]
+python_version = "3.8"
+
+[pipenv]
+allow_prereleases = false
