@@ -24,6 +24,8 @@ The Ui and mails are fully internationalized.
 2. Add arrange_videochat and its dependecies to your settings installed apps:
     ```
     INSTALLED_APPS = [
+        "modeltranslation",  # must be put before admin
+        "django.contrib.admin",
         ...
         "crispy_forms",
         "bootstrap_datepicker_plus",
