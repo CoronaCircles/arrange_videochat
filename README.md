@@ -61,8 +61,6 @@ DEFAULT_FROM_EMAIL
 ## Dependencies
 crispy_forms
 bootstrap_datepicker_plus
-arrange_videochat
-django-ckeditor
 icalendar
 django-modeltranslation
 

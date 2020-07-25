@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2013dfc0f3fdf72478504a3e449cfc05d18a9ca19044d259aab7d6bd2a2b7c5f"
+            "sha256": "82d258592ddd71dc6eea6b9c9dd06c7a7d1c107cd33922a343f51adfdc4c14d5"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -105,14 +105,6 @@
             "index": "pypi",
             "version": "==3.0.5"
         },
-        "django-ckeditor": {
-            "hashes": [
-                "sha256:71c3c7bb46b0cbfb9712ef64af0d2a406eab233f44ecd7c42c24bdfa39ae3bde",
-                "sha256:e4d112851a72c5bf8b586e1c674d34084cab16d28f2553ad15cc770d1e9639c7"
-            ],
-            "index": "pypi",
-            "version": "==5.9.0"
-        },
         "django-crispy-forms": {
             "hashes": [
                 "sha256:888bb316db89b60050a42ec35080facb361d823eec38010ccb0702f45642d3b8",
@@ -128,13 +120,6 @@
             ],
             "index": "pypi",
             "version": "==0.4.5"
-        },
-        "django-js-asset": {
-            "hashes": [
-                "sha256:8ec12017f26eec524cab436c64ae73033368a372970af4cf42d9354fcb166bdd",
-                "sha256:c163ae80d2e0b22d8fb598047cd0dcef31f81830e127cfecae278ad574167260"
-            ],
-            "version": "==1.2.2"
         },
         "django-modeltranslation": {
             "hashes": [
