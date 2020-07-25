@@ -31,12 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "modeltranslation",  # must be put before admin
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "crispy_forms",
+    "bootstrap_datepicker_plus",
+    "arrange_videochat",
 ]
 
 MIDDLEWARE = [
@@ -112,3 +116,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = "/static/"
+
+
+TIME_ZONES_BY_LANG = {"de": "Europe/Berlin", "en": "UTC"}
